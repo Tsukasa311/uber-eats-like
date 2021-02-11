@@ -1,4 +1,4 @@
-class Order < ApplecationRecord
+class Order < ApplicationRecord
   has_many :line_foods
   has_one :restaurant, through: :line_food
 
