@@ -20,13 +20,13 @@ function App() {
         path="/restaurants">
         <Restaurants />
         </Route>
-        // フード一覧ページ
-        <Route
+        {/* // フード一覧ページ */}
+        {/* <Route
         exact
         path="/foods"
         >
         <Foods />
-        </Route>
+        </Route> */}
         // 注文ページ
         <Route
         exact
