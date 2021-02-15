@@ -23,6 +23,6 @@ export const restaurantsReducer = (state, action) => {
         restaurantsList: action.payload.restaurants,
       };
     default:
-      throw new Error();
+        throw new Error();
   }
 }
