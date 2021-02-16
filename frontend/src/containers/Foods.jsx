@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useReducer } from 'react';
+import styled from 'styled-components';
+import { LocalMallIcon } from '../components/Icons';
 
 //reducers
 import {
@@ -12,7 +14,29 @@ import {
 import { fetchFoods } from '../apis/foods';
 
 //constants
+import { COLORS } from '../style_constants';
 import { REQUEST_STATE } from '../constants';
+
+//images
+import MainLogo from '../images/logo.png';
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 32px;
+`;
+
+const MainLogoImage = styled.img`
+  height: 90px;
+`
+
+const BagIconWrapper = styled.div`
+  padding-top: 24px;
+`;
+
+const ColoredBagIcon = styled(LocalMallIcon)`
+  color: ${COLORS.MAIN};
+`;
 
 export const Foods = ({
   match
@@ -41,11 +65,13 @@ export const Foods = ({
           </p>
         </Fragment>
         :
-        foodState.foodsList.map(food =>
-          <div key={food.id}>
-            {food.name}
-          </div>
-        )
+        <HeaderWrapper>
+          <MainLogoImage src={MainLogo} alt="main logo" />
+          <BagIconWrapper>
+            <ColoredBagIcon>
+            </ColoredBagIcon>
+          </BagIconWrapper>
+        </HeaderWrapper>
       }
     </Fragment>
   )
