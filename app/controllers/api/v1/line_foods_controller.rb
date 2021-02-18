@@ -1,17 +1,16 @@
 module Api
   module V1
-
     class LineFoodsController < ApplicationController
-      before_action :set_food, only: [:create,:replace]
+      before_action :set_food, only: [:create, :replace]
 
       def index
-        line_foods = LineFood.active.all
+        line_foods = LineFood.active
         if line_foods.exists?
           render json: {
             line_food_ids: line_foods.map { |line_food| line_food.id },
             restaurant: line_foods[0].restaurant,
             count: line_foods.sum { |line_food| line_food[:count] },
-            amount: line_foods.sum { |line_food| line_food.total_amount }
+            amount: line_foods.sum { |line_food| line_food.total_amount },
           }, status: :ok
         else
           render json: {}, status: :no_content
@@ -35,7 +34,6 @@ module Api
         else
           render json: {}, status: :internal_server_error
         end
-
       end
 
       def replace

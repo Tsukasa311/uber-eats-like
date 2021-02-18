@@ -12,4 +12,3 @@ class LineFood < ApplicationRecord
     food.price * count
   end
 end
-end
